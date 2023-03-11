@@ -1,0 +1,20 @@
+{
+    "$schema": "../../../system/schema/extend.json",
+    "name": "Custom Head Resources",
+    "description": "Allows you to add CSS and JS resources to the header without editing PHP files.",
+    "version": "0.0.9",
+    "environment": {
+        "system": "^8.0"
+    },
+    "url": "https://github.com/friends-of-sunlight-cms/",
+    "author": "Friends of Sunlight CMS",
+    "class": "CustomHeadResourcesPlugin",
+    "langs": {
+        "headresources": "lang"
+    },
+    "events": [],
+    "events.web": [
+        {"event": "tpl.head", "method":"onHead"}
+    ],
+    "events.admin": []
+}
