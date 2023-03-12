@@ -56,7 +56,7 @@ class CustomHeadResourcesPlugin extends ExtendPlugin
         return ['manage' => _lang('admin.plugins.action.do.config')];
     }
 
-    function getAction(string $name): PluginAction
+    function getAction(string $name): ?PluginAction
     {
         if ($name === 'manage') {
             return new ManageResourcesAction($this);
