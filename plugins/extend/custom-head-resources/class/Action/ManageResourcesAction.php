@@ -121,7 +121,7 @@ class ManageResourcesAction extends PluginAction
     private function composeRemovableRow(string $inputName = 'input', string $value = ''): string
     {
         $input = '<input type="text" name="' . _e($inputName) . '[]" value="' . _e($value) . '" class="inputbig">';
-        $deleteBtn = '<a class="button" id="row-deleter" href=""><img src="' . _e(Router::path('admin/images/icons/delete.png')) . '" alt="del" class="icon">' . _lang('headresources.btn.delete') . '</a>';
+        $deleteBtn = '<a class="button" id="row-deleter" href=""><img src="' . _e(Router::path('admin/public/images/icons/delete.png')) . '" alt="del" class="icon">' . _lang('headresources.btn.delete') . '</a>';
         return '<tr><td class="row-order-cell"><span class="sortable-handle ui-sortable-handle"></span>' . $input . '&nbsp;&nbsp;' . $deleteBtn . '</td></tr>';
     }
 
@@ -141,7 +141,7 @@ class ManageResourcesAction extends PluginAction
                 <tbody class="sortable ui-sortable" data-handle-selector="td.row-sortable-cell, .sortable-handle">' . $rows . '</tbody>
                 <tfoot>
                     <tr><td>
-                        <a class="button row-adder" href="" data-parent="' . $blockId . '"><img src="' . _e(Router::path('admin/images/icons/new.png')) . '" alt="add" class="icon">' . _lang('headresources.btn.addfile') . '</a>
+                        <a class="button row-adder" href="" data-parent="' . $blockId . '"><img src="' . _e(Router::path('admin/public/images/icons/new.png')) . '" alt="add" class="icon">' . _lang('headresources.btn.addfile') . '</a>
                     </td></tr>
                 </tfoot>
             </table>';
