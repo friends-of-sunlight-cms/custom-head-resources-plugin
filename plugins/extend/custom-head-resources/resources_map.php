@@ -5,7 +5,7 @@
   'js_files' => 
   array (
   ),
-  'css_before' => '.asd{}',
+  'css_before' => '',
   'css_after' => '',
   'js_before' => '',
   'js_after' => '',

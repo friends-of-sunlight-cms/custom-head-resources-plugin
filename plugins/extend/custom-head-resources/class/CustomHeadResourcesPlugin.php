@@ -67,7 +67,7 @@ class CustomHeadResourcesPlugin extends ExtendPlugin
 
     protected function getResourceMapPath(): string
     {
-        return __DIR__ . '/resources_map.php';
+        return __DIR__ . DIRECTORY_SEPARATOR . '../resources_map.php';
     }
 
     public function getResourcesMap(): ConfigurationFile
