@@ -1,4 +1,4 @@
-<?php if (defined('SL_ROOT')) return array (
+<?php return array (
   'css_files' => 
   array (
   ),

@@ -2,12 +2,12 @@
 
 namespace SunlightExtend\CustomHeadResources\Action;
 
-use DOMDocument;
 use Sunlight\Action\ActionResult;
 use Sunlight\Core;
 use Sunlight\GenericTemplates;
 use Sunlight\Message;
 use Sunlight\Plugin\Action\PluginAction;
+use Sunlight\Plugin\Plugin;
 use Sunlight\Router;
 use Sunlight\Util\ConfigurationFile;
 use Sunlight\Util\Request;
@@ -50,7 +50,7 @@ class ManageResourcesAction extends PluginAction
                 $resourceMap->save();
                 // redirect after save
                 $_admin->redirect(Router::admin($_admin->currentModule, ['query' => Core::getCurrentUrl()->getQuery() + ['saved' => 1]]));
-                return '';
+                return ActionResult::success();
             } catch (\Throwable $e) {
                 throw $e;
             }
@@ -145,5 +145,10 @@ class ManageResourcesAction extends PluginAction
                     </td></tr>
                 </tfoot>
             </table>';
+    }
+
+    function isAllowed(): bool
+    {
+        return $this->plugin->hasStatus(Plugin::STATUS_OK);
     }
 }
