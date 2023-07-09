@@ -50,7 +50,7 @@ class CustomHeadResourcesPlugin extends ExtendPlugin
             }
         }
     }
-    
+
     protected function getCustomActionList(): array
     {
         return ['manage' => _lang('admin.plugins.action.do.config')];

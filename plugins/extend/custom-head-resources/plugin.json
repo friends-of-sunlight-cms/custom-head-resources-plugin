@@ -1,24 +1,24 @@
 {
-    "$schema": "../../../system/schema/extend.json",
-    "name": "Custom Head Resources",
-    "description": "Allows you to add CSS and JS resources to the header without editing PHP files.",
-    "version": "0.9.2",
-    "environment": {
-        "system": "^8.0"
-    },
-    "authors": [
-        {"name": "Friends of Sunlight CMS", "url": "https://github.com/friends-of-sunlight-cms/"}
-    ],
-    "class": "CustomHeadResourcesPlugin",
-    "actions": {
-        "manage": "Action/ManageResourcesAction"
-    },
-    "langs": {
-        "headresources": "lang"
-    },
-    "events": [],
-    "events.web": [
-        {"event": "tpl.head", "method":"onHead"}
-    ],
-    "events.admin": []
+  "$schema": "../../../system/schema/extend.json",
+  "name": "Custom Head Resources",
+  "description": "Allows you to add CSS and JS resources to the header without editing PHP files.",
+  "version": "0.9.2",
+  "environment": {
+    "system": "^8.0"
+  },
+  "authors": [
+    {"name": "Friends of Sunlight CMS", "url": "https://github.com/friends-of-sunlight-cms/"}
+  ],
+  "class": "CustomHeadResourcesPlugin",
+  "actions": {
+    "manage": "Action/ManageResourcesAction"
+  },
+  "langs": {
+    "headresources": "lang"
+  },
+  "events": [],
+  "events.web": [
+    {"event": "tpl.head", "method": "onHead"}
+  ],
+  "events.admin": []
 }
