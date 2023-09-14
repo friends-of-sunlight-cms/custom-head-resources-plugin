@@ -51,20 +51,6 @@ class CustomHeadResourcesPlugin extends ExtendPlugin
         }
     }
 
-    protected function getCustomActionList(): array
-    {
-        return ['manage' => _lang('admin.plugins.action.do.config')];
-    }
-
-    function getAction(string $name): ?PluginAction
-    {
-        if ($name === 'manage') {
-            return new ManageResourcesAction($this);
-        }
-
-        return parent::getAction($name);
-    }
-
     protected function getResourceMapPath(): string
     {
         return __DIR__ . DIRECTORY_SEPARATOR . '../resources_map.php';
