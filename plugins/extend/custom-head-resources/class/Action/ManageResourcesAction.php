@@ -10,6 +10,7 @@ use Sunlight\Plugin\Action\PluginAction;
 use Sunlight\Plugin\Plugin;
 use Sunlight\Router;
 use Sunlight\Util\ConfigurationFile;
+use Sunlight\Util\Form;
 use Sunlight\Util\Request;
 use Sunlight\Xsrf;
 
@@ -60,42 +61,42 @@ class ManageResourcesAction extends PluginAction
         $output .= _buffer(function () use ($resourceMap) { ?>
             <form method="post">
 
-                <h2>CSS</h2>
+                <h2><?= _lang('headresources.css') ?></h2>
 
                 <fieldset>
-                    <legend>Soubory CSS</legend>
+                    <legend><?= _lang('headresources.css.files') ?></legend>
                     <?= $this->getTableBlock('css_files', $resourceMap['css_files']); ?>
                 </fieldset>
 
                 <fieldset>
-                    <legend>Obsah před CSS soubory</legend>
-                    <textarea name="css_before" class="arealine"><?= $resourceMap['css_before'] ?></textarea>
+                    <legend><?= _lang('headresources.css.content_before.files') ?></legend>
+                    <?= Form::textarea('css_before', $resourceMap['css_before'], ['class' => 'arealine']) ?>
                 </fieldset>
 
                 <fieldset>
-                    <legend>Obsah po CSS souborech</legend>
-                    <textarea name="css_after" class="arealine"><?= $resourceMap['css_after'] ?></textarea>
+                    <legend><?= _lang('headresources.css.content_after.files') ?></legend>
+                    <?= Form::textarea('css_after', $resourceMap['css_after'], ['class' => 'arealine']) ?>
                 </fieldset>
 
-                <h2>JavaScript</h2>
+                <h2><?= _lang('headresources.js') ?></h2>
                 <fieldset>
-                    <legend>Soubory JS</legend>
+                    <legend><?= _lang('headresources.js.files') ?></legend>
                     <?= $this->getTableBlock('js_files', $resourceMap['js_files']); ?>
                 </fieldset>
 
                 <fieldset>
-                    <legend>Obsah před JS soubory</legend>
-                    <textarea name="js_before" class="arealine"><?= $resourceMap['js_before'] ?></textarea>
+                    <legend><?= _lang('headresources.js.content_before.files') ?></legend>
+                    <?= Form::textarea('js_before', $resourceMap['js_before'], ['class' => 'arealine']) ?>
                 </fieldset>
 
                 <fieldset>
-                    <legend>Obsah po JS souborech</legend>
-                    <textarea name="js_after" class="arealine"><?= $resourceMap['js_after'] ?></textarea>
+                    <legend><?= _lang('headresources.js.content_after.files') ?></legend>
+                    <?= Form::textarea('js_after', $resourceMap['js_after'], ['class' => 'arealine']) ?>
                 </fieldset>
 
                 <?= Xsrf::getInput(); ?>
                 <br>
-                <input type="submit" name="save_resources" value="<?= _lang('global.savechanges') ?>">
+                <?= Form::input('submit', 'save_resources', _lang('global.savechanges')) ?>
             </form>
 
             <script type="text/javascript">
@@ -113,14 +114,15 @@ class ManageResourcesAction extends PluginAction
                     });
                 });
             </script>
-        <?php });
+        <?php
+        });
 
         return ActionResult::output($output);
     }
 
     private function composeRemovableRow(string $inputName = 'input', string $value = ''): string
     {
-        $input = '<input type="text" name="' . _e($inputName) . '[]" value="' . _e($value) . '" class="inputbig">';
+        $input = Form::input('text', $inputName . '[]', $value, ['class' => 'inputbig']);
         $deleteBtn = '<a class="button" id="row-deleter" href=""><img src="' . _e(Router::path('admin/public/images/icons/delete.png')) . '" alt="del" class="icon">' . _lang('headresources.btn.delete') . '</a>';
         return '<tr><td class="row-order-cell"><span class="sortable-handle ui-sortable-handle"></span>' . $input . '&nbsp;&nbsp;' . $deleteBtn . '</td></tr>';
     }
