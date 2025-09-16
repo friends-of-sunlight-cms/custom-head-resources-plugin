@@ -9,6 +9,6 @@ return [
     'css.content_after.files' => 'Obsah po CSS souborech',
     'js' => 'JavaScript',
     'js.files' => 'JavaScript soubory',
-    'js.content_before.files' => 'Obsah před CSS soubory',
-    'js.content_after.files' => 'Obsah po CSS souborech',
+    'js.content_before.files' => 'Obsah před JavaScript soubory',
+    'js.content_after.files' => 'Obsah po JavaScript souborech',
 ];
